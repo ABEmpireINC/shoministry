@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Safe Housing Outreach Ministry CDO – Strengthening Families, Building Futures</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Nunito+Sans:wght@300;400;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green:       #1b4332;
+      --green-mid:   #2d6a4f;
+      --green-light: #40916c;
+      --gold:        #c9a227;
+      --gold-light:  #e3be55;
+      --gold-pale:   #f5e9c0;
+      --cream:       #faf8f2;
+      --white:       #ffffff;
+      --text:        #1a1a1a;
+      --text-mid:    #3a3a3a;
+      --text-light:  #666;
+      --border:      #d4c89a;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Nunito Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+
+    .topbar {
+      background: var(--green); color: #a8d5b5;
+      font-size: 0.77rem; letter-spacing: 0.04em;
+      padding: 7px 48px; display: flex; justify-content: space-between; align-items: center;
+    }
+    .topbar a { color: var(--gold-light); text-decoration: none; }
+    .topbar a:hover { text-decoration: underline; }
+    .topbar-right { display: flex; gap: 24px; }
+
+    nav {
+      position: sticky; top: 0; z-index: 1000;
+      background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.10);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 78px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+    .nav-logo img { height: 56px; width: 56px; object-fit: cover; border-radius: 50%; border: 2px solid var(--gold); }
+    .nav-logo-words { line-height: 1.15; }
+    .nav-logo-words .brand-script { font-family: 'Dancing Script', cursive; font-size: 1.45rem; color: var(--green); font-weight: 700; line-height: 1; }
+    .nav-logo-words .brand-sub { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+
+    .nav-links { display: flex; align-items: center; list-style: none; gap: 2px; }
+    .nav-links > li { position: relative; }
+    .nav-links > li > a { display: block; padding: 28px 13px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--green); text-decoration: none; transition: color 0.2s; }
+    .nav-links > li > a:hover { color: var(--gold); }
+    .nav-links > li:hover .dd { display: block; }
+    .dd { display: none; position: absolute; top: 100%; left: 0; background: var(--green); min-width: 230px; box-shadow: 0 10px 36px rgba(0,0,0,0.2); z-index: 999; }
+    .dd a { display: block; padding: 12px 22px; color: #b8dcc5; font-size: 0.82rem; letter-spacing: 0.03em; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.06); transition: background 0.15s; }
+    .dd a:hover { background: rgba(201,162,39,0.18); color: var(--gold-light); }
+    .btn-donate-nav { background: var(--gold) !important; color: var(--white) !important; padding: 11px 24px !important; border-radius: 4px; font-weight: 700 !important; letter-spacing: 0.06em !important; transition: background 0.2s !important; }
+    .btn-donate-nav:hover { background: var(--green) !important; }
+
+    .hero { position: relative; min-height: 620px; display: flex; align-items: center; overflow: hidden; }
+    .hero-img { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1593113598332-cd288d649433?w=1400&q=80') center/cover no-repeat; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(27,67,50,0.93) 0%, rgba(27,67,50,0.78) 50%, rgba(27,67,50,0.35) 100%); }
+    .hero-content { position: relative; z-index: 2; max-width: 660px; padding: 90px 48px 90px 80px; animation: fadeUp 0.9s ease both; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+    .hero-badge { display: inline-block; background: var(--gold); color: var(--white); font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; padding: 5px 14px; margin-bottom: 20px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 3.9rem); color: var(--white); line-height: 1.12; margin-bottom: 22px; font-weight: 900; }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero p { font-size: 1.07rem; color: rgba(255,255,255,0.87); line-height: 1.78; margin-bottom: 36px; max-width: 560px; }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary { background: var(--gold); color: var(--white); padding: 14px 32px; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: background 0.2s, transform 0.15s; display: inline-block; }
+    .btn-primary:hover { background: var(--green-mid); transform: translateY(-2px); }
+    .btn-ghost { border: 2px solid rgba(255,255,255,0.55); color: var(--white); padding: 13px 30px; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: all 0.2s; display: inline-block; }
+    .btn-ghost:hover { border-color: var(--gold-light); background: rgba(201,162,39,0.15); }
+
+    .stats-strip { background: var(--gold); display: grid; grid-template-columns: repeat(4,1fr); }
+    .stat-item { padding: 28px 20px; text-align: center; border-right: 1px solid rgba(255,255,255,0.3); }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 2.3rem; font-weight: 900; color: var(--white); line-height: 1; }
+    .stat-lbl { font-size: 0.72rem; color: rgba(255,255,255,0.88); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; margin-top: 5px; }
+    .stat-sub { font-size: 0.78rem; color: rgba(255,255,255,0.72); margin-top: 3px; }
+    .stat-link { color: rgba(255,255,255,0.9); font-size: 0.75rem; text-decoration: none; display: block; margin-top: 5px; }
+    .stat-link:hover { text-decoration: underline; }
+
+    section { padding: 80px 48px; }
+    .inner { max-width: 1120px; margin: 0 auto; }
+    .sec-label { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 10px; }
+    .sec-title { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 3vw, 2.6rem); color: var(--green); font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+    .sec-body { font-size: 1.02rem; line-height: 1.82; color: var(--text-mid); max-width: 760px; }
+    .gold-bar { width: 54px; height: 4px; background: var(--gold); margin: 14px 0 26px; }
+
+    .about-bg { background: var(--cream); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .about-img-wrap { position: relative; }
+    .about-img-wrap img { width: 100%; height: 460px; object-fit: cover; display: block; }
+    .about-img-cap { position: absolute; bottom: -22px; right: -22px; background: var(--green); color: var(--white); padding: 22px 26px; max-width: 240px; }
+    .about-img-cap .cap-num { font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 900; color: var(--gold); line-height: 1; }
+    .about-img-cap .cap-text { font-size: 0.8rem; color: #9dd4b0; letter-spacing: 0.05em; margin-top: 4px; }
+
+    .prog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 48px; }
+    .prog-card { background: var(--white); border-top: 4px solid var(--gold); box-shadow: 0 2px 18px rgba(0,0,0,0.07); transition: transform 0.2s, box-shadow 0.2s; overflow: hidden; }
+    .prog-card:hover { transform: translateY(-6px); box-shadow: 0 14px 44px rgba(0,0,0,0.13); }
+    .prog-card-img { width: 100%; height: 200px; object-fit: cover; display: block; }
+    .prog-card-body { padding: 26px 24px; }
+    .prog-icon { width: 48px; height: 48px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+    .prog-icon svg { width: 24px; height: 24px; fill: var(--gold); }
+    .prog-card h3 { font-family: 'Playfair Display', serif; font-size: 1.18rem; color: var(--green); margin-bottom: 10px; }
+    .prog-card p { font-size: 0.88rem; line-height: 1.74; color: var(--text-light); margin-bottom: 12px; }
+    .prog-card ul { padding-left: 1.2rem; margin-bottom: 14px; }
+    .prog-card ul li { font-size: 0.84rem; line-height: 1.65; color: var(--text-light); margin-bottom: 4px; }
+    .link-more { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); text-decoration: none; display: inline-block; margin-top: 4px; }
+    .link-more:hover { color: var(--green); }
+
+    .photo-strip { padding: 0; display: grid; grid-template-columns: repeat(4,1fr); }
+    .photo-strip-item { position: relative; overflow: hidden; height: 300px; }
+    .photo-strip-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+    .photo-strip-item:hover img { transform: scale(1.06); }
+    .photo-strip-item .ps-label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(27,67,50,0.88)); color: var(--white); padding: 18px 16px 14px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+
+    .mission-dark { background: var(--green); padding: 72px 48px; text-align: center; }
+    .mission-dark p { color: rgba(255,255,255,0.82); font-size: 1.06rem; line-height: 1.82; max-width: 700px; margin: 0 auto 34px; }
+
+    .quote-bg { background: var(--gold-pale); }
+    .quote-wrap { max-width: 820px; margin: 0 auto; text-align: center; }
+    .quote-mark { font-family: 'Playfair Display', serif; font-size: 7rem; line-height: 0.55; color: var(--gold); display: block; margin-bottom: 14px; }
+    blockquote { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.28rem, 2.4vw, 1.72rem); color: var(--green); line-height: 1.68; margin-bottom: 22px; }
+    cite { font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); font-weight: 700; font-style: normal; }
+
+    .involve-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 44px; }
+    .involve-card { text-align: center; padding: 44px 28px; border: 1px solid var(--border); transition: border-color 0.2s, box-shadow 0.2s; }
+    .involve-card:hover { border-color: var(--gold); box-shadow: 0 8px 32px rgba(201,162,39,0.12); }
+    .inv-num { font-family: 'Playfair Display', serif; font-size: 3.2rem; font-weight: 900; color: var(--gold); opacity: 0.22; line-height: 1; margin-bottom: 10px; }
+    .involve-card h3 { font-family: 'Playfair Display', serif; font-size: 1.22rem; color: var(--green); margin-bottom: 12px; }
+    .involve-card p { font-size: 0.9rem; line-height: 1.74; color: var(--text-light); margin-bottom: 24px; }
+
+    .nl-bg { background: var(--green-mid); }
+    .nl-inner { max-width: 540px; margin: 0 auto; text-align: center; }
+    .nl-inner .sec-label { color: var(--gold-light); }
+    .nl-inner p { color: rgba(255,255,255,0.78); margin-bottom: 28px; }
+    .nl-form { display: flex; max-width: 440px; margin: 0 auto; }
+    .nl-form input { flex:1; padding: 14px 18px; border: none; font-size: 0.92rem; font-family: inherit; outline: none; }
+    .nl-form button { background: var(--gold); color: var(--white); border: none; padding: 14px 24px; font-weight: 700; font-size: 0.84rem; letter-spacing: 0.07em; text-transform: uppercase; cursor: pointer; font-family: inherit; transition: background 0.2s; }
+    .nl-form button:hover { background: var(--green); }
+
+    .contact-bg { background: var(--cream); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .contact-detail { line-height: 2.3; font-size: 0.96rem; color: var(--text-mid); }
+    .contact-detail a { color: var(--green); text-decoration: none; font-weight: 600; }
+    .contact-detail a:hover { color: var(--gold); }
+    .donate-btns { display: flex; flex-direction: column; gap: 13px; max-width: 320px; margin-top: 8px; }
+    .btn-paypal { background: #003087; color: var(--white); padding: 14px 28px; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 4px; text-align: center; transition: background 0.2s; display: flex; align-items: center; justify-content: center; gap: 10px; }
+    .btn-paypal:hover { background: #001f5c; }
+    .donate-amount-row { margin-bottom: 4px; }
+    .donate-amount-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); display: block; margin-bottom: 7px; }
+    .donate-amounts { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+    .amt-btn { background: var(--cream); border: 2px solid var(--border); color: var(--text-mid); padding: 7px 14px; font-size: 0.85rem; font-weight: 700; cursor: pointer; font-family: inherit; transition: all 0.15s; border-radius: 3px; }
+    .amt-btn:hover, .amt-btn.active { background: var(--green); border-color: var(--green); color: var(--white); }
+    .amt-custom-row { display: flex; align-items: center; border: 1.5px solid var(--border); background: var(--cream); overflow: hidden; }
+    .amt-dollar { padding: 8px 10px; font-weight: 700; color: var(--text-mid); font-size: 0.9rem; background: #eee; border-right: 1px solid var(--border); }
+    .amt-custom-row input { border: none; outline: none; padding: 8px 10px; font-family: inherit; font-size: 0.9rem; background: var(--cream); color: var(--text); width: 100%; }
+    .btn-paypal svg { width: 20px; height: 20px; fill: var(--white); flex-shrink: 0; }
+    .paypal-divider { text-align: center; font-size: 0.72rem; color: var(--text-light); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; margin: 4px 0; position: relative; }
+    .paypal-divider::before, .paypal-divider::after { content: ""; position: absolute; top: 50%; width: 38%; height: 1px; background: var(--border); }
+    .paypal-divider::before { left: 0; } .paypal-divider::after { right: 0; }
+    .btn-green { background: var(--green); color: var(--white); padding: 14px 28px; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 4px; text-align: center; transition: background 0.2s; display: block; }
+    .btn-green:hover { background: var(--green-mid); }
+    .btn-gold-outline { border: 2px solid var(--gold); color: var(--gold); padding: 13px 28px; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 4px; text-align: center; transition: all 0.2s; display: block; }
+    .btn-gold-outline:hover { background: var(--gold); color: var(--white); }
+
+    footer { background: #0f2419; color: #7aaa8e; padding: 62px 48px 28px; }
+    .footer-grid { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .fb .brand-script-ft { font-family: 'Dancing Script', cursive; font-size: 1.6rem; color: var(--white); font-weight: 700; }
+    .fb p { font-size: 0.86rem; line-height: 1.8; color: #5d8f70; margin: 10px 0 16px; }
+    .fb .fc { font-size: 0.85rem; line-height: 2.1; }
+    .fb .fc a { color: var(--gold-light); text-decoration: none; }
+    .fb .fc a:hover { text-decoration: underline; }
+    .footer-col h4 { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 8px; }
+    .footer-col ul li a { color: #5d8f70; text-decoration: none; font-size: 0.87rem; transition: color 0.15s; }
+    .footer-col ul li a:hover { color: var(--gold-light); }
+    .footer-bot { max-width: 1120px; margin: 22px auto 0; display: flex; justify-content: space-between; align-items: center; font-size: 0.76rem; color: #3d6349; }
+    .footer-bot a { color: #3d6349; text-decoration: none; }
+    .footer-bot a:hover { color: var(--gold-light); }
+    .ft-social { display: flex; gap: 10px; }
+    .ft-social a { width: 34px; height: 34px; background: rgba(255,255,255,0.06); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #7aaa8e; font-size: 0.84rem; text-decoration: none; transition: background 0.2s; }
+    .ft-social a:hover { background: var(--gold); color: var(--white); }
+
+    @media (max-width: 960px) {
+      .topbar, .nav-links { display: none; }
+      nav { padding: 0 20px; }
+      .hero-content { padding: 64px 24px; }
+      section { padding: 52px 20px; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+      .prog-grid { grid-template-columns: 1fr; }
+      .involve-grid { grid-template-columns: 1fr; }
+      .stats-strip { grid-template-columns: 1fr 1fr; }
+      .photo-strip { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .about-img-cap { position: static; margin-top: 14px; max-width: 100%; }
+      .about-img-wrap img { height: 280px; }
+      .footer-bot { flex-direction: column; gap: 12px; text-align: center; }
+    }
+
+    /* ── PROFESSIONAL DONATE FORM ── */
+    .donate-form-wrap { background: var(--white); }
+    .donate-hero-band { background: var(--green); padding: 36px 32px; text-align: center; }
+    .donate-hero-band h2 { font-family: 'Playfair Display', serif; font-size: 1.9rem; color: var(--white); font-weight: 900; margin-bottom: 8px; }
+    .donate-hero-band .verse { font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold-light); font-size: 0.97rem; margin-bottom: 6px; }
+    .donate-hero-band .verse-cite { font-size: 0.72rem; color: rgba(255,255,255,.6); letter-spacing: .1em; }
+    .donate-hero-band .sub { color: rgba(255,255,255,.78); font-size: .9rem; line-height: 1.65; margin-top: 10px; }
+    .df-section { padding: 24px 0; border-bottom: 1px solid var(--border); }
+    .df-section:last-of-type { border-bottom: none; }
+    .df-section-title { font-size: .7rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+    .freq-tabs { display: flex; gap: 0; margin-bottom: 18px; }
+    .freq-tab { flex: 1; padding: 11px; text-align: center; border: 2px solid var(--border); background: var(--cream); font-size: .88rem; font-weight: 700; cursor: pointer; font-family: inherit; color: var(--text-mid); transition: all .15s; }
+    .freq-tab:first-child { border-right: none; }
+    .freq-tab.active { background: var(--green); border-color: var(--green); color: var(--white); }
+    .amount-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 12px; }
+    .amt-opt { padding: 13px 8px; border: 2px solid var(--border); background: var(--cream); text-align: center; font-size: .95rem; font-weight: 700; cursor: pointer; font-family: inherit; color: var(--text-mid); transition: all .15s; }
+    .amt-opt:hover, .amt-opt.active { background: var(--green); border-color: var(--green); color: var(--white); }
+    .amt-other-row { display: flex; align-items: center; border: 2px solid var(--border); background: var(--cream); }
+    .amt-other-row span { padding: 10px 14px; font-weight: 700; color: var(--text-mid); border-right: 1px solid var(--border); font-size: 1rem; }
+    .amt-other-row input { border: none; outline: none; padding: 10px 12px; font-family: inherit; font-size: 1rem; background: transparent; color: var(--text); width: 100%; }
+    .df-input-row { display: grid; gap: 12px; margin-bottom: 12px; }
+    .df-input-row.two { grid-template-columns: 1fr 1fr; }
+    .df-input-row.three { grid-template-columns: 1fr 1fr 1fr; }
+    .df-field { display: flex; flex-direction: column; }
+    .df-field label { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text); margin-bottom: 4px; }
+    .df-field input, .df-field select, .df-field textarea { padding: 10px 12px; border: 1.5px solid #ccc; font-family: inherit; font-size: .9rem; color: var(--text); background: var(--cream); outline: none; width: 100%; }
+    .df-field input:focus, .df-field select:focus { border-color: var(--green); }
+    .df-field select { appearance: none; }
+    .df-check-row { display: flex; align-items: flex-start; gap: 10px; padding: 12px; background: var(--gold-pale); border: 1px solid rgba(201,162,39,.3); margin-bottom: 10px; cursor: pointer; }
+    .df-check-row input[type=checkbox] { margin-top: 2px; accent-color: var(--green); width: 16px; height: 16px; flex-shrink: 0; cursor: pointer; }
+    .df-check-row .df-check-text { font-size: .87rem; color: var(--text-mid); line-height: 1.55; }
+    .df-check-row .df-check-text strong { color: var(--green); }
+    .df-total-bar { background: var(--green); color: var(--white); padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; margin: 16px 0; }
+    .df-total-bar .lbl { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.7); }
+    .df-total-bar .total-amt { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 900; color: var(--gold-light); }
+    .df-total-bar .freq-lbl { font-size: .8rem; color: rgba(255,255,255,.6); }
+    .btn-donate-submit { background: var(--gold); color: var(--white); padding: 16px; font-weight: 700; font-size: 1rem; letter-spacing: .1em; text-transform: uppercase; border: none; cursor: pointer; font-family: inherit; width: 100%; transition: background .2s; margin-top: 8px; }
+    .btn-donate-submit:hover { background: var(--green); }
+    .df-secure-note { text-align: center; font-size: .73rem; color: var(--text-light); margin-top: 10px; line-height: 1.6; }
+    .df-secure-note a { color: var(--green); }
+    .ded-toggle { font-size: .82rem; color: var(--green); font-weight: 700; cursor: pointer; text-decoration: underline; margin-bottom: 10px; display: inline-block; }
+    .ded-fields { display: none; margin-top: 10px; }
+    .ded-fields.open { display: block; }
+    @media (max-width: 600px) {
+      .amount-grid { grid-template-columns: repeat(2,1fr); }
+      .df-input-row.two, .df-input-row.three { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span>Serving Detroit Metro, Michigan &amp; Dallas/Kaufman County, Texas — Housing. Healing. Hope.</span>
+  <div class="topbar-right">
+    <a href="tel:3134059606">313-405-9606</a>
+    <a href="/cdn-cgi/l/email-protection#147d7a60757f7154677c7b797d7a7d6760666d3a7b6673">intake&#64;shoministry.org</a>
+    <a href="https://www.shoministry.org">shoministry.org</a>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4QAqRXhpZgAASUkqAAgAAAABADEBAgAHAAAAGgAAAAAAAABQaWNhc2EAAP/bAIQACAYGEAYREAcQEA0QEBAQGw8QFRAQGRsbGxQoGh8lHRocHCAkKycgKywrHBwoNik1MDs0NDQfJ0U9NDQ8LjM0NAEJCQkNCw0ZDg4YJiIdHSYmJiYnJiYmJicmJicmJiYmJiYmJiYmJiYyJiYmJiYmJiYmJiYmMiYmJiYmJjImJiYm/8AAEQgAzQDNAwERAAIRAQMRAf/EABsAAQACAwEBAAAAAAAAAAAAAAADBQECBAYH/8QANxAAAQMCBQIEAwYFBQAAAAAAAQACAwQRBRIhMUETUQYiYXEUFTJCUoGRobEHFiNi0TNDY3Lh/8QAGgEBAAMBAQEAAAAAAAAAAAAAAAECAwQFBv/EACoRAQACAgICAgEEAQUBAAAAAAABAgMREjEhQQQTIlFhcYGRBSMyQrEU/9oADAMBAAIRAxEAPwD5mtnmiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICfwkT2gQE2kUoFH7noTcb8p66E36hE7gQ7EBAQEBAQEBAQEBAQEBAQEBP2Slp6d9W5tOxpc9xs0Dcqt7fX5krWZdEtPFTeR0hlcN+jbKPTOd/wABb1VItNvOl9RWO/JS0RxR7aSCOV0jjYAuBFu+wtbk7Je8Yo5WkpSb9Q7I8LhdMzDBK+V7nZHSR2DGnki+rwOTpsbLP7bceWtLxjry47Uy6IYT+jIGazQCSTYAfsk2iNzKYjfiHo34f8rfHhQIFQ60lXID/pMtcsB4IGrj3sFxxknJ+fr06JpFfx9+1FWTiqkkqAMoe9zwOwJuuvHGo8sLSgVlRAQEBAQEBAQEBAQEBAQEBAQWmCTtjM8Jc1jpqd0Mb3GwDiW6E8ZgC2/qufPEzqfUNcc6cUtFJA4ROjkDibAZTr2t3/BaRkpr9leE78vY19G7wtTfKYxerqWB1XJsI4+Isx0F+de/cLzcd/8A6MnOf+MdOy1fppxjue3ljUMoGuhjcHSPaWPkGgDeWM515d20Gh19CI5T56cu4rH7uC618a0yel8PQDCoz4ie3M5rujRMtfPP963Ib+64vkX+y31R/bqxV4Rzn+lZWTmmD6fNmllN6l9763v0weddXHk2GwW2OvtnedeFauiGP8idn7iAgICAgICAgICAgICAgICAnQbp4k6ev8KEYLG/xHMXdOO8dLFmIEk1t7dm8/8Ai835e8sxip/btwf7cc5VVBST+L6ksdISXkyyveTlY37TrcAcD2W17V+Ni1EMqxbNfytBN8wlGA4YwRx7PmIGd4G8j37taOwt+qw/4V+zLPn1DXcTMUos/g6bxM6XCoHCOKmaJDMGNvI/NaSV7js0AGw5JusOeTBEWt3Ztxrl/GvpS4zioxGZlDRNc5sbfh6awNwznKO7ty46+y6sOPhWb5PbDJeJtxq6cToofDDRhzXxfEWvUTWD3N/44m8erjb3VcV7555T0m9a4vHt57Eqg1xFVbKwNbCzMbucGjcn7R7n1AXZjrw/FzZJ5+YcC2Z9iAgICAgICAgICAgICAgICDeGTpObIQ12VwdZ2xsdj6FRau/CazMTuXfUVkNXK6tkbIczs3TY1jG+1xsPYLGKXivGv+Wm43tDiOJvxMtc7K1rG5ImMFmsb91o/c7nlWxYYx+UXycpT4VigoGVNMQ8CoiERcy1wMwJ3toQLFUy4pvaLfotjvwiY/V00mNR0sM9AxkjOtlbnYQXFmuZpJtvptsNLarPJgmbxe0+IXpliKzELyvn/lujdhTB06iUMknsblgJ8sZPJIBJ/LZctKffmi9uo6b2tOLHqO5eYosZkopI6kZT05GyZQ0NDrG9jlAuvQvgraunJXJMTuWKyohnkkq7TuL3mTK8tGpN7FwuTvxZRjpNYipe8WncuOaYznMbaCwAFgB2A4C2iulJlGrKigEBAQEBAQEBAQEBAQEBAQE7NiAn7p7E34RD0HhqJlGJcfmAdHS26bTs+oP0N9hbMfZcfyrTOsce3TgiI/KfTixWZ5s2Ul00jjUzk75iPK0+w1txmtwtMNKx10pkmZ7Vi6OmIiRO0CaBAQEBAQEBAQEBAQEBAQEBAQEBI8nmBP2Hs8B8NVVfBEY30eV83VY2S5LXWtnsBbZpsDfZeX8n5VKXmHfh+Pe1e11N/DeGtc10dTPd/UzPlaDmkBGvGhufyXJT/VJr4mG9vgxaPEvm9TTupHvp3ghzHFjge4K9zHki1YmPby7UmJmsolfSogICAgICAgICAgICAgICAg2YwyHIASewBJUTbSYjbMkLobBzXNvtcEJE7JjTDGGQ5QCT2AUzI1UbE0tK+ABzmOaD3FvwUc4nxCZrMds0bo2SRula58QcOo0OIJbfWxUZYma6r2nHqJ8vrkgZVtirIDGynaG5GuIa4xgaMDXC/mtcd767L5qd1tNb9vZjzETXpb0cz83wgh0zmbyuHkGawYGm1jp7am2657Vrve29bTEeIfGvEmJSYtVTVcjQx2csygbBugHvpqvp/i44x4oiHhfIvN7zMqpdLEQEBAQEBAQEBAQEBAQEBAQbtmdGDGCQHb20v7+iraI7Tt6mpwkVxgwKkjNmuL5JpTYPfl1cP7ABpb3XBXNNN3vP8Q65x8tVp/lWzwieQYJRB0tzlc8DWZ/f0YOB+JW1bTFfsyM5r/1q6vhW4bmpoHRulZpUVTj/AE4zyyM9/wC4eY/ZCpF5yebf1C3CKx4VNbUsIFJFm6bXZ3PePNI+1sx7DsONb6ldOOkx5lja8dQ4Vqzj9Xv/AAj4uhgayGrmfG6naWwPDMwMZH0mwvoRp3B9F43zfhXtbeON7el8X5NdfnOtGNfxDE0c1JTdYPlcHdc2Y62lxlF7aAAa7eqj4/8ApvG0Wv69GX5u4mK/5eBc4vJcbknUk9+69qI086Znt2NwmV0DsWyjoNkERdmH1dgNyspy1i8U9rxjnjzcS1Z+xD0J/BAnZ0ICAgICAgICAgICAgmp6SSrIZGxzyTl0HPa+yrbJWnm0r0rM+Ierq44/DMBwZkg+MnAbVuY0uc1vELbWGt9dV5tZtmv9kx+MdOuYjHXjE+Z7Zq5GeD2HC4R1KydgFQ5w1jadom5TuedVNYn5E87eKx0WmuGOMdqTDsOqPEr/h2WyxjM4us2ONvfTQfuV05L0wRthSlssoKyjhjz9GZ0vTtmcY8rXXNrt1J3PIF1emSbTHKNbRelY6l00uA56Z+MzSdGO+SEZbulf2aLjTuf8Kl/k6y/XWNprh/HlM6KLAOtTyYxNJ0YWnJF5bmST7rRcfif8Jf5P5xSvmfZGHdeUyjw2hDmTVr2h4jgL2MJOvmDc5twC7TuR2CtkyzyiqKUjjMyjwTBn43J8M0hrWtzyyO+ljBu4qc+eMVfPmUYsU3lE6mEj308UjnxNdcPLSARtmy66nYDc3Cc4ivK0ak4btxifDuxfARhEnRdL5Qxpf5fMJCLmMAHUi4vrYXVMXyfsrvS98HGdbc+M4QcIdHCSS6SFs2Uizm3+y4DnT9VfFn+yu1L4+NtOqr8PDCI2zVcvSkeMzIGNzSZe7rkBg99VnX5POZ4R4/VecEVjdp/privh/5TDFWPlaHT2dFEWnP07Xzu1s3eynF8n7Z1EIyYeFd7Uq6mAgICAgICAgICAmyFlLhRiMOS85kYJHNjY/S/2c1tfW22qwrlmd7jTXhHrys4q8eHx1szJK22WMNsWU45ItoX+23JusJpOadf9f8A1rF4x/y4/Dk4hndiDgZHwxPqGA6l0oHlv3sTmPstfkY/w41UxW/PlKOCV1I52KSkmY3dEHfUZD/uEcAXuO5twCkxE14VNzvlK7rHvpMPpMNp2uIqw6epewE5nB1gwn0trfsuWleWe1r+um1p1jitffbmwWhpq18OEvfu90tS6ME5g1pIY121gAdhqTpsCr/IvkrE3iP4VxVpvjKaWYeKKqITXp6VvkhiAsRCBcgD1A1PfQXVYr9OOZr5n2tMxkvqfENcVrBjTxPK2SGjgbkp4GMu4NsbXbcWBI1cfYKcNZxx482nuTJbnPnqE2HU5oqOtxWqPSNVEKana5pBdqCS1u+UWFvZUy2m2StaR12nHWIpNrT2xjLflUX8vU9wwhstbM/QPcRcNv8AdF9he57q2GJyW+y/9QjJPCOFUmBRxYRC7H3/AERuy0jTbNLPt1COzdbcDU7qvyJtkt9ce+1sURSvOf6Q4DIw9XxLUtM7onhlPCATmmNyCd9Bvc7m53U56zGsVPH6oxWjzkslwOqDp6nHakdepiiNQyMagSXAaCB2uNB9IHdRmpPGMVOjHaJmbz2iw2j6rpfEuIEvax2YsO8kp+lluP8ArwN9N176rGHEUjz9mRU4tiD6yV9fPZ08mgZxG3gEeg2bxuey68OKK141YZL7nc9qddLAQEBAQEBAQEBAU7OmwkLRkBcB2ubfkq6juE7lqp68Qje2QcuoJBGxBSYie0x4YJvrqSe6REeke9s5yAWXNjuLmx/BRqE7nTANtdQQp1uNEb0zmN89zfe9zf8ANRqP0Nto5nRHqtc9rvvBxB/NJrE+NESSzOnOd7nPO13OJP6qK1iOiZmY3LUuLrAkkDYEnT2U6iOjbCnUR2jc9MteW6AuF9DYkX9FExCdyucH8PyVzyHPbTtY0ySPcTdkfLiBt6XtdcufPFI1WNy3xYpmUmM+IG1GSkpmGKCAFsNzd3q89nO5O/qowfHnza8+ZTmy7nVeoUK7IjTnnz52IgQEBAQEBAQEBAQEC3CDNuNUGLe6JgtfVEQIkUoZtZQlhOkCAifSzo2ta1hbLFE51+o95OZovYBoAJ1Gtxqb20ssL8t9NKaS4hirTH8ppg9sAdnkc4eeWT7z7bAcN491TFhnlzv2tfL441U9uV1MS3KIEBAQEBAQEBAQEBBlrspDrA2INjt7ILKqxczyRVQDrxP6gzvzG+fNlvYaDYDhRpfk1GKlk0VW0SARZWgZ/MWg3IzW5ueE0jk2w7GXUMr6wh0jntynM7X6mnU86Nsmkxb2io8Q+EjmpbP/AKthdr7WsHCx01vm1TSIt6Z+Yt+H+XdP7fVz5tc97X9sulvxvwmjbSrrvio2QWeMrQ22e7NG2u1ttCdzrv7qdG02JYt8waI8mW0me9xr5Gt101Pl39VEQWttphuIig6rXM6jZWBjm5rCwcDroeQEmCttMz4p15airIdedrmnzbEkemuyaOXluzF8tOcNyXvezs213tcdLbHKNPYpo5eEUeI9N9PMA7+g0N+oa2c43Fxp9Xrsmjl58pGYu6KaWsZ1GCQOFmyG4u2wJPNjqmiLedtaPFPhI56YtLuvoTm28rhf3836Jo2iFe4Qmg81jJ1N9LW+n87H3CaNuRSqICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIP/Z" alt="Safe Housing Outreach Ministry CDO" />
+    <div class="nav-logo-words">
+      <div class="brand-script">Safe Housing&#8482;</div>
+      <div class="brand-sub">Outreach Ministry CDO</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li>
+      <a href="#about">About Us</a>
+      <div class="dd">
+        <a href="#about">Our Mission &amp; History</a>
+        <a href="#about">Leadership</a>
+        <a href="#about">Who We Serve</a>
+      </div>
+    </li>
+    <li>
+      <a href="#programs">Ways We Help</a>
+      <div class="dd">
+        <a href="#programs">Emergency Housing</a>
+        <a href="#programs">Transitional Housing</a>
+        <a href="#programs">Affordable Housing</a>
+        <a href="#programs">Home Ownership Programs</a>
+        <a href="#programs">Financial Empowerment</a>
+        <a href="#programs">Workforce Development</a>
+        <a href="#programs">Homeless Prevention &amp; Case Management</a>
+        <a href="#programs">Survivor Support</a>
+        <a href="#programs">Community Outreach</a>
+      </div>
+    </li>
+    <li><a href="#impact">Our Impact</a></li>
+    <li><a href="#volunteer">Get Involved</a></li>
+    <li><a href="#news">Newsletter</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#" onclick="showPage('intake');return false;" style="color:var(--gold)!important;">Client Intake</a></li>
+    <li><a href="#donate" class="btn-donate-nav">Donate Now</a></li>
+  </ul>
+</nav>
+
+<div id="main-site">
+<!-- HERO -->
+<section class="hero" style="padding:0;">
+  <div class="hero-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-badge">Community Development Organization — Detroit Metro, MI &amp; Dallas/Kaufman County, TX</span>
+    <h1>Safe Housing.<br /><em>Stronger Families.</em><br />Lasting Hope.</h1>
+    <p>Safe Housing Outreach Ministry CDO provides emergency shelter, transitional and affordable housing, homeownership pathways, workforce training, financial services, youth programs, and wraparound community support across Detroit Metro, Michigan and Dallas/Kaufman County, Texas — because every family deserves a safe place to call home.</p>
+    <div class="hero-cta">
+      <a href="#donate" class="btn-primary">Donate Today</a>
+      <a href="#programs" class="btn-ghost">See Our Programs</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <div class="stat-num">10</div>
+    <div class="stat-lbl">Years of Service</div>
+    <div class="stat-sub">Faith-rooted community development since 2016</div>
+    <a href="#about" class="stat-link">Our Story →</a>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">9+</div>
+    <div class="stat-lbl">Programs &amp; Services</div>
+    <div class="stat-sub">Housing, workforce, youth, financial &amp; more</div>
+    <a href="#programs" class="stat-link">See All Programs →</a>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">2</div>
+    <div class="stat-lbl">States Served</div>
+    <div class="stat-sub">Detroit Metro, MI &amp; Dallas/Kaufman County, TX</div>
+    <a href="#contact" class="stat-link">Contact Us →</a>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">Give</div>
+    <div class="stat-lbl">Make an Impact Today</div>
+    <div class="stat-sub">Every gift changes a family's life</div>
+    <a href="#donate" class="stat-link">Donate Now →</a>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="about-bg">
+  <div class="inner">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=900&q=80" alt="Families supported by Safe Housing Outreach Ministry CDO" />
+        <div class="about-img-cap">
+          <div class="cap-num">10</div>
+          <div class="cap-text">Years of faith-driven housing &amp; community development</div>
+        </div>
+      </div>
+      <div>
+        <div class="sec-label">Our Story</div>
+        <h2 class="sec-title">Born From Compassion.<br />Built for the Community.</h2>
+        <div class="gold-bar"></div>
+        <p class="sec-body">Safe Housing Outreach Ministry CDO was founded with one urgent mission: to provide safe shelter and support to <strong>battered women and children</strong> fleeing dangerous and life-threatening situations. We have always believed that every person — regardless of their circumstances — deserves safety, dignity, and a roof over their head.</p>
+        <br />
+        <p class="sec-body">Over the years, our reach has expanded. While our commitment to survivors of domestic violence remains at our core, we now proudly serve the <strong>broader community</strong> across Detroit Metro, Michigan and Dallas/Kaufman County, Texas — offering emergency housing, transitional programs, affordable housing, homeownership pathways, workforce development, job readiness training, financial literacy, tax preparation, childcare, and wraparound stability programs.</p>
+        <br />
+        <p class="sec-body">We are a faith-rooted Community Development Organization driven by the belief that <em>stable housing is the foundation of everything</em> — health, education, employment, and family wellbeing. Established September 2016.</p>
+        <br />
+        <a href="#programs" class="btn-primary">Explore Our Programs</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs" style="background:var(--white);">
+  <div class="inner">
+    <div class="sec-label">Ways We Help</div>
+    <h2 class="sec-title">Our Programs &amp; Services</h2>
+    <div class="gold-bar"></div>
+    <p class="sec-body">From emergency shelter to homeownership readiness — Safe Housing Outreach Ministry CDO meets our neighbors where they are across Detroit Metro, Michigan and Dallas/Kaufman County, Texas, and walks with them toward lasting stability.</p>
+
+    <div class="prog-grid">
+
+      <div class="prog-card">
+        <img class="prog-card-img" src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=700&q=80" alt="Emergency housing shelter" />
+        <div class="prog-card-body">
+          <div class="prog-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18L20 8.5v7l-8 4-8-4v-7l8-4.32z"/></svg></div>
+          <h3>Emergency Housing</h3>
+          <p>For individuals and families in immediate crisis across Detroit Metro and Dallas/Kaufman County, we provide emergency shelter placement, rapid-response referrals, and coordinated case management to ensure no one is left without a safe place tonight.</p>
+          <ul>
+            <li>24/7 emergency shelter placement</li>
+            <li>Transport to safety for families in danger</li>
+            <li>Recovery of vital documents: birth certificates, Social Security cards, state IDs</li>
+          </ul>
+          <a href="#" onclick="showPage('intake');return false;" class="link-more">Get Help Now →</a>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <img class="prog-card-img" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&q=80" alt="Filling out housing paperwork" />
+        <div class="prog-card-body">
+          <div class="prog-icon"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+          <h3>Transitional Housing</h3>
+          <p>Our transitional housing program bridges the gap between emergency shelter and permanent housing in both Michigan and Texas.</p>
+          <ul>
+            <li>Full Living Spaces</li>
+            <li>Required Counseling</li>
+            <li>182-Day Max Stay</li>
+            <li>Case management from intake through permanent housing placement</li>
+          </ul>
+          <a href="#" onclick="showPage('intake');return false;" class="link-more">Apply Now →</a>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <img class="prog-card-img" src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=700&q=80" alt="Affordable apartment buildings" />
+        <div class="prog-card-body">
+          <div class="prog-icon"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div>
+          <h3>Low-Income &amp; Affordable Housing</h3>
+          <p>We connect low-income families with affordable housing resources across Detroit Metro, Michigan and Dallas/Kaufman County, Texas — rental assistance, housing voucher navigation, and subsidized placement.</p>
+          <ul>
+            <li>Rent based on income percentage using U.S. HUD guidelines</li>
+            <li>100% of units reserved for low-income families</li>
+            <li>Government subsidies and housing vouchers accepted</li>
+            <li>All programs comply with the Fair Housing Act</li>
+          </ul>
+          <a href="#" onclick="showPage('intake');return false;" class="link-more">Apply Now →</a>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <img class="prog-card-img" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=700&q=80" alt="Family homeownership" />
+        <div class="prog-card-body">
+          <div class="prog-icon"><svg viewBox="0 0 24 24"><path d="M19 9.3V4h-3v2.6L12 3 2 12h3v8h5v-5h4v5h5v-8h3l-3-2.7z"/></svg></div>
+          <h3>Home Ownership Programs</h3>
+          <p>We guide families in Detroit Metro and Dallas/Kaufman County on the complete path from renting to owning their own home — with financial coaching, credit guidance, and down-payment grant connections. Homeownership is within reach.</p>
+          <ul>
+            <li>One-on-one homeownership counseling</li>
+            <li>Down-payment and closing cost grant connections</li>
+            <li>Mortgage readiness and credit preparation</li>
+            <li>Buyer education workshops</li>
+          </ul>
+          <a href="#" onclick="showPage('intake');return false;" class="link-more">Get Started →</a>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <img class="prog-card-img" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=700&q=80" alt="Financial empowerment" />
+        <div class="prog-card-body">
+          <div class="prog-icon"><svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
+          <h3>Financial Empowerment</h3>
+          <p>Our Pathways to Stability program is a holistic financial empowerment initiative helping low-income families in Detroit and Texas achieve long-term financial security and housing stability.</p>
+          <ul>
+            <li>Free or low-cost tax preparation (sliding scale available)</li>
+            <li>Personalized financial planning and budgeting</li>
+            <li>Credit guidance and savings planning</li>
+            <li>Strategic use of tax refunds toward housing and stability goals</li>
+          </ul>
+          <a href="#" onclick="showPage('intake');return false;" class="link-more">Learn More →</a>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <img class="prog-card-img" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=700&q=80" alt="Workforce development" />
+        <div class="prog-card-body">
+          <div class="prog-icon"><svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.36C18 2.53 15.48 0 12 0 8.52 0 6 2.53 6 4.64c0 .48.11.92.18 1.36H4c-1.11 0-2 .89-2 2v14c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-8-4c1.68 0 3 1.32 3 2.64 0 .68-.37 1.3-.86 1.71-.31.12-.65.19-1.14.19s-.83-.07-1.14-.19C11.37 3.94 11 3.32 11 2.64 11 1.32 12.32 0 14 0zm6 16H4V8h16v14z"/></svg></div>
+          <h3>Workforce Development &amp; Job Readiness</h3>
+          <p>We prepare residents and community members in Detroit Metro and Dallas/Kaufman County for meaningful, sustainable employment — at no charge to residents within our transitional housing program.</p>
+          <ul>
+            <li>Resume writing and interview coaching</li>
+            <li>Job search strategies and employer connections</li>
+            <li>Computer training and free lab access (open to the public)</li>
+            <li>Professional etiquette and workplace communication</li>
+            <li>Entrepreneurship track and career development counseling</li>
+          </ul>
+          <a href="#" onclick="showPage('intake');return false;" class="link-more">Get Started →</a>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <img class="prog-card-img" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=700&q=80" alt="Survivor support" />
+        <div class="prog-card-body">
+          <div class="prog-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+          <h3>Survivors &amp; Family Support</h3>
+          <p>Our founding mission lives on. We provide trauma-informed care, advocacy, and comprehensive support for survivors of domestic violence in Detroit Metro and Dallas/Kaufman County — helping women and children rebuild with safety and dignity.</p>
+          <ul>
+            <li>Safe, confidential emergency placement — crisis line: 313-405-9606</li>
+            <li>Safety planning, DV advocacy, and individual counseling</li>
+            <li>Parenting skills, anger management, and life skills workshops</li>
+            <li>Spiritual guidance and mentoring — no additional fee</li>
+          </ul>
+          <a href="#" onclick="showPage('intake');return false;" class="link-more">Get Help Now →</a>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <img class="prog-card-img" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&q=80" alt="People sitting at table signing papers for case management" />
+        <div class="prog-card-body">
+          <div class="prog-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+          <h3>Homeless Prevention &amp; Case Management</h3>
+          <p>We walk alongside families every step of the way — from crisis stabilization through long-term housing stability. Our dedicated Case Managers provide personalized guidance, connecting each family to the resources, tools, and support they need to build a self-sufficient and stable life.</p>
+          <ul>
+            <li>Emergency rental &amp; utility assistance for families facing eviction within 14 days</li>
+            <li>Dedicated Case Manager assigned to each family from intake through stability</li>
+            <li>Individualized Housing Stability Plan — short and long-term goal setting</li>
+            <li>Budget counseling, credit building, and savings coaching toward homeownership</li>
+            <li>Coordination with landlords, agencies, and community resources</li>
+          </ul>
+          <a href="#" onclick="showPage('intake');return false;" class="link-more">Get Help Now →</a>
+        </div>
+      </div>
+
+      <div class="prog-card">
+        <img class="prog-card-img" src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=700&q=80" alt="Community outreach" />
+        <div class="prog-card-body">
+          <div class="prog-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+          <h3>Community Outreach</h3>
+          <p>Our outreach teams go directly into neighborhoods across Detroit Metro, Michigan and Dallas/Kaufman County, Texas — connecting residents to food, clothing, resources, and all of our programs.</p>
+          <ul>
+            <li>Monthly food distribution: dry goods, canned food, and bread</li>
+            <li>Monthly clothing &amp; shoe distributions — all ages, no charge</li>
+            <li>Vehicle donation program for employment transportation</li>
+            <li>Global outreach — South Africa: free medical clinics, job training schools, and water wells</li>
+          </ul>
+          <a href="#" onclick="showPage('intake');return false;" class="link-more">Learn More →</a>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO STRIP -->
+<div class="photo-strip">
+  <div class="photo-strip-item">
+    <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=600&q=80" alt="Family receiving keys to their new home" />
+    <div class="ps-label">Housing Programs</div>
+  </div>
+  <div class="photo-strip-item">
+    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="People sitting at table signing papers for homeless prevention case management" />
+    <div class="ps-label">Homeless Prevention &amp; Case Management</div>
+  </div>
+  <div class="photo-strip-item">
+    <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=600&q=80" alt="People learning financial literacy and taxes at a table" />
+    <div class="ps-label">Financial Empowerment</div>
+  </div>
+  <div class="photo-strip-item">
+    <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=80" alt="Community outreach" />
+    <div class="ps-label">Community Outreach</div>
+  </div>
+</div>
+
+<!-- IMPACT DARK BANNER -->
+<section class="mission-dark" id="impact" style="padding:72px 48px;">
+  <div class="sec-label" style="color:var(--gold-light);">Our Impact</div>
+  <h2 class="sec-title" style="color:var(--white); max-width:700px; margin:0 auto 16px;">Every Family Deserves a Safe Place to Call Home</h2>
+  <p>Safe Housing Outreach Ministry CDO has served families across Detroit Metro, Michigan and Dallas/Kaufman County, Texas — providing emergency shelter, permanent housing support, homeownership preparation, workforce training, youth programs, and financial services. Our impact is measured one life, one family at a time.</p>
+  <a href="#donate" class="btn-primary">Support Our Work Today</a>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-bg">
+  <div class="inner">
+    <div class="quote-wrap">
+      <span class="quote-mark">"</span>
+      <blockquote>We started by opening our doors to women and children in crisis — and we never stopped. Today, we open those same doors to anyone who needs housing, hope, and a hand up. Safe housing is not a privilege. It is a human right, and we will fight for it every single day.</blockquote>
+      <cite>Safe Housing Outreach Ministry CDO — Our Founding Promise</cite>
+    </div>
+  </div>
+</section>
+
+<!-- GET INVOLVED -->
+<section id="volunteer" style="background:var(--white);">
+  <div class="inner">
+    <div class="sec-label">Get Involved</div>
+    <h2 class="sec-title">Join Us in This Work</h2>
+    <div class="gold-bar"></div>
+    <p class="sec-body">Whether you give your time, your professional skills, or your financial support — there is a place for you in this mission across Detroit Metro, Michigan and Dallas/Kaufman County, Texas. Together, we can ensure every neighbor has a safe, stable home.</p>
+    <div class="involve-grid">
+      <div class="involve-card">
+        <div class="inv-num">01</div>
+        <h3>Volunteer</h3>
+        <p>Serve in housing navigation, youth mentorship, tax preparation, food outreach, workforce training, and more. Your hours are one of the most valuable gifts our community can receive.</p>
+        <a href="#contact" class="btn-primary">Sign Up to Volunteer</a>
+      </div>
+      <div class="involve-card">
+        <div class="inv-num">02</div>
+        <h3>Donate</h3>
+        <p>Your financial gift funds emergency shelter placements, homeownership workshops, daycare programs, workforce training, and outreach services for families in immediate need in Detroit and Texas.</p>
+        <a href="#donate" class="btn-primary">Donate Now</a>
+      </div>
+      <div class="involve-card">
+        <div class="inv-num">03</div>
+        <h3>Partner With Us</h3>
+        <p>Churches, businesses, schools, and civic organizations in Michigan and Texas can sponsor programs, contribute in-kind resources, provide pro-bono services, or co-host community events with us.</p>
+        <a href="#contact" class="btn-primary">Become a Partner</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="nl-bg" id="news">
+  <div class="nl-inner">
+    <div class="sec-label">Stay Connected</div>
+    <h2 class="sec-title" style="color:var(--white);">Sign Up for Our Newsletter</h2>
+    <p>Get program updates, volunteer opportunities, housing resources, and community impact stories from Detroit Metro and Dallas/Kaufman County delivered straight to your inbox.</p>
+    <div class="nl-form">
+      <input type="email" placeholder="Enter your email address" />
+      <button type="button">Subscribe</button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT & DONATE -->
+<section id="contact" class="contact-bg">
+  <div class="inner">
+    <div class="contact-grid">
+      <div>
+        <div class="sec-label">Contact Us</div>
+        <h2 class="sec-title">We're Here for You</h2>
+        <div class="gold-bar"></div>
+        <p class="sec-body" style="margin-bottom:22px;">Need housing assistance in Detroit Metro or Dallas/Kaufman County? Want to volunteer, donate, or partner with us? Our team is ready to help — reach out today.</p>
+        <div class="contact-detail">
+          <div><strong>Website:</strong> <a href="https://www.shoministry.org">www.shoministry.org</a></div>
+          <div><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#90f9fee4f1fbf5d0e3f8fffdf9fef9e3e4e2e9beffe2f7">intake&#64;shoministry.org</a></div>
+          <div><strong>Phone:</strong> <a href="tel:3134059606">313-405-9606</a></div>
+          <div><strong>Serving:</strong> Detroit Metro, Michigan &amp; Dallas/Kaufman County, Texas</div>
+        </div>
+        <br />
+        <div style="margin-top:20px; background:var(--green); padding:28px; border-top:4px solid var(--gold);">
+          <div style="font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-light);font-weight:700;margin-bottom:10px;">Need Help?</div>
+          <h3 style="font-family:'Playfair Display',serif;color:var(--white);font-size:1.3rem;font-weight:700;margin-bottom:12px;">Apply for Services</h3>
+          <p style="color:rgba(255,255,255,.8);font-size:.9rem;line-height:1.75;margin-bottom:20px;">Fill out our Client Intake Form to request housing assistance, case management, financial support, workforce training, and more. A team member will follow up within 24–48 hours.</p>
+          <a href="#" onclick="showPage('intake');return false;" style="display:inline-block;background:var(--gold);color:var(--white);padding:14px 28px;font-weight:700;font-size:.88rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:4px;">Complete Client Intake Form →</a>
+          <p style="color:rgba(255,255,255,.6);font-size:.78rem;margin-top:14px;">Need immediate help? Call us at <a href="tel:3134059606" style="color:var(--gold-light);font-weight:700;">(313) 405-9606</a></p>
+        </div>
+      </div>
+      <div id="donate">
+        <div class="donate-form-wrap">
+          <div class="donate-hero-band">
+            <h2>You Will Make a Difference</h2>
+            <div class="verse">"My people will live in peaceful dwelling places, in secure homes, in undisturbed places of rest."</div>
+            <div class="verse-cite">— Isaiah 32:18</div>
+            <p class="sub">Become one of our everyday supporters. Choose to give once or monthly and join us in making a difference — a convenient way to give that means more goes directly to families in need.</p>
+          </div>
+
+          <form id="prof-donate-form" onsubmit="submitDonate(event)" style="padding:0 2px;">
+
+            <!-- FREQUENCY + AMOUNTS -->
+            <div class="df-section">
+              <div class="df-section-title">I want to give</div>
+              <div class="freq-tabs">
+                <button type="button" class="freq-tab active" onclick="setFreq(this,'One-time')">One-time</button>
+                <button type="button" class="freq-tab" onclick="setFreq(this,'Monthly')">Monthly</button>
+              </div>
+              <div class="amount-grid">
+                <button type="button" class="amt-opt" onclick="setDonateAmt(this,50)">$50</button>
+                <button type="button" class="amt-opt" onclick="setDonateAmt(this,150)">$150</button>
+                <button type="button" class="amt-opt active" onclick="setDonateAmt(this,250)">$250</button>
+                <button type="button" class="amt-opt" onclick="setDonateAmt(this,500)">$500</button>
+                <button type="button" class="amt-opt" onclick="setDonateAmt(this,1000)">$1,000</button>
+                <button type="button" class="amt-opt" onclick="setDonateAmt(this,0)" id="amt-other-btn">Other</button>
+              </div>
+              <div class="amt-other-row" id="amt-other-row" style="display:none;">
+                <span>$</span>
+                <input type="number" id="custom-donate-amt" placeholder="Enter amount" min="1" oninput="updateCustomDonate(this)" />
+              </div>
+            </div>
+
+            <!-- DEDICATION -->
+            <div class="df-section">
+              <span class="ded-toggle" onclick="toggleDed()">+ Add a dedication</span>
+              <div class="ded-fields" id="ded-fields">
+                <div class="df-input-row">
+                  <div class="df-field">
+                    <label>Dedication Message</label>
+                    <input type="text" name="dedication" placeholder="e.g. In honor of my mother" />
+                  </div>
+                </div>
+              </div>
+              <div class="df-section-title" style="margin-top:14px;">Please designate my gift to</div>
+              <div class="df-field">
+                <select name="designation">
+                  <option value="Most Urgent Needs">Most Urgent Needs</option>
+                  <option value="General Donation">General Donation</option>
+                  <option value="Emergency Housing">Emergency Housing</option>
+                  <option value="Transitional Housing">Transitional Housing</option>
+                  <option value="Homeownership Programs">Homeownership Programs</option>
+                  <option value="Workforce Development">Workforce Development</option>
+                  <option value="Youth &amp; Daycare Programs">Youth &amp; Daycare Programs</option>
+                  <option value="Domestic Violence Support">Domestic Violence Support</option>
+                  <option value="Homeless Prevention &amp; Case Management">Homeless Prevention &amp; Case Management</option>
+                  <option value="Case Management Services">Case Management Services</option>
+                  <option value="Community Outreach">Community Outreach</option>
+                  <option value="Financial Empowerment">Financial Empowerment</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- DONOR INFO -->
+            <div class="df-section">
+              <div class="df-section-title">Tell us about yourself</div>
+              <div class="df-input-row two">
+                <div class="df-field">
+                  <label>Title</label>
+                  <select name="title">
+                    <option value="">Select</option>
+                    <option>Dr.</option>
+                    <option>Miss</option>
+                    <option>Mr.</option>
+                    <option>Mr. and Mrs.</option>
+                    <option>Mrs.</option>
+                    <option>Ms.</option>
+                    <option>Rev.</option>
+                  </select>
+                </div>
+                <div class="df-field" style="align-self:end;">
+                  <label>&nbsp;</label>
+                  <label style="display:flex;align-items:center;gap:8px;font-size:.85rem;font-weight:400;letter-spacing:0;text-transform:none;color:var(--text-mid);cursor:pointer;margin-top:6px;">
+                    <input type="checkbox" name="business_org" style="width:16px;height:16px;accent-color:var(--green);" /> This is a business/organization donation
+                  </label>
+                </div>
+              </div>
+              <div class="df-input-row two">
+                <div class="df-field">
+                  <label>First Name <span style="color:#c0392b;">*</span></label>
+                  <input type="text" name="dfname" placeholder="First name" required />
+                </div>
+                <div class="df-field">
+                  <label>Last Name <span style="color:#c0392b;">*</span></label>
+                  <input type="text" name="dlname" placeholder="Last name" required />
+                </div>
+              </div>
+              <div class="df-input-row">
+                <div class="df-field">
+                  <label>Email <span style="color:#c0392b;">*</span></label>
+                  <input type="email" name="demail" placeholder="For your donation receipt" required />
+                </div>
+              </div>
+              <div class="df-input-row two">
+                <div class="df-field">
+                  <label>Phone Number</label>
+                  <input type="tel" name="dphone" placeholder="(000) 000-0000" />
+                </div>
+                <div class="df-field">
+                  <label>Zip / Postal Code</label>
+                  <input type="text" name="dzip" placeholder="Zip code" />
+                </div>
+              </div>
+              <div class="df-input-row">
+                <div class="df-field">
+                  <label>Address</label>
+                  <input type="text" name="daddr1" placeholder="Street address" />
+                </div>
+              </div>
+              <div class="df-input-row">
+                <div class="df-field">
+                  <input type="text" name="daddr2" placeholder="Add address line 2 (optional)" style="margin-top:-4px;" />
+                </div>
+              </div>
+              <div class="df-input-row three">
+                <div class="df-field">
+                  <label>City</label>
+                  <input type="text" name="dcity" placeholder="City" />
+                </div>
+                <div class="df-field">
+                  <label>State</label>
+                  <select name="dstate">
+                    <option value="">Select a state</option>
+                    <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+                  </select>
+                </div>
+                <div class="df-field">
+                  <label>Country</label>
+                  <select name="dcountry">
+                    <option value="United States">United States</option>
+                    <option value="Canada">Canada</option>
+                    <option value="United Kingdom">United Kingdom</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- OPTIONS -->
+            <div class="df-section">
+              <label class="df-check-row">
+                <input type="checkbox" name="anonymous" />
+                <span class="df-check-text">Please keep my gift anonymous.</span>
+              </label>
+              <label class="df-check-row" id="fee-cover-row">
+                <input type="checkbox" name="cover_fees" onchange="updateFeeCover(this)" />
+                <span class="df-check-text"><strong id="fee-cover-label">Help us cover the processing fees.</strong><br />Add a small amount to your donation so 100% of your contribution benefits the families we serve.</span>
+              </label>
+            </div>
+
+            <!-- TOTAL -->
+            <div class="df-total-bar">
+              <div>
+                <div class="lbl">Donation Total</div>
+                <div class="freq-lbl" id="freq-display">One-time</div>
+              </div>
+              <div class="total-amt" id="total-display">$250.00</div>
+            </div>
+
+            <button type="submit" class="btn-donate-submit">Review &amp; Complete Donation</button>
+
+            <p class="df-secure-note">
+              Safe Housing Outreach Ministry CDO is a 501(c)(3) nonprofit organization.<br />
+              Your donation is tax-deductible to the full extent of the law.<br />
+              Questions? Call <a href="tel:3134059606">(313) 405-9606</a> or email <a href="/cdn-cgi/l/email-protection#483b3d3838273a3c083b2027252126213b3c3a3166273a2f">support&#64;shoministry.org</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="fb">
+      <div class="brand-script-ft">Safe Housing Outreach Ministry CDO&#8482;</div>
+      <p>A faith-rooted community development organization serving Detroit Metro, Michigan and Dallas/Kaufman County, Texas. From emergency shelter to homeownership — we believe every neighbor deserves safety, stability, and hope.</p>
+      <div class="fc">
+        <div><a href="tel:3134059606">313-405-9606</a></div>
+        <div><a href="/cdn-cgi/l/email-protection#e2919792928d9096a2918a8d8f8b8c8b9196909bcc8d9085">support&#64;shoministry.org</a></div>
+        <div><a href="https://www.shoministry.org">www.shoministry.org</a></div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>About Us</h4>
+      <ul>
+        <li><a href="#about">Our Mission</a></li>
+        <li><a href="#about">Our History</a></li>
+        <li><a href="#about">Leadership</a></li>
+        <li><a href="#about">Who We Serve</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Our Programs</h4>
+      <ul>
+        <li><a href="#programs">Emergency Housing</a></li>
+        <li><a href="#programs">Transitional Housing</a></li>
+        <li><a href="#programs">Affordable Housing</a></li>
+        <li><a href="#programs">Home Ownership</a></li>
+        <li><a href="#programs">Financial Empowerment</a></li>
+        <li><a href="#programs">Workforce Development</a></li>
+        <li><a href="#programs">Homeless Prevention &amp; Case Management</a></li>
+        <li><a href="#programs">Survivor Support</a></li>
+        <li><a href="#programs">Community Outreach</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Give &amp; Serve</h4>
+      <ul>
+        <li><a href="#donate">Donate Now</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#a5d6d0d5d5cad7d1e5d6cdcac8cccbccd6d1d7dc8bcad7c29ad6d0c7cfc0c6d198e8cacbd1cdc9dc809795e2ccd3cccbc2">Give Monthly</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#770402070718050337041f181a1e191e0403050e59180510480402151d1214034a271b1619191213524547301e011e1910">Planned Giving</a></li>
+        <li><a href="#contact">Volunteer</a></li>
+        <li><a href="#contact">Partner With Us</a></li>
+        <li><a href="#news">Newsletter</a></li>
+        <li><a href="#" onclick="showPage('intake');return false;">Client Intake Form</a></li>
+        <li><a href="#" onclick="showPage('privacy');return false;">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <span>&copy; <span id="shom-year"></span> Safe Housing Outreach Ministry CDO&#8482; &nbsp;|&nbsp; <a href="#" onclick="showPage('privacy');return false;">Privacy Policy</a> &nbsp;|&nbsp; Established September 2016 &nbsp;|&nbsp; <a href="https://www.shoministry.org">shoministry.org</a> &nbsp;|&nbsp; <a href="mailto:support@shoministry.org">support@shoministry.org</a></span>
+  </div>
+  <div style="background:#122a1d;padding:16px 48px;font-size:0.67rem;color:rgba(168,213,181,0.65);line-height:1.75;border-top:1px solid rgba(201,162,39,0.1);">
+    Safe Housing Outreach Ministry&#8482; is an independent nonprofit organization. We collaborate with a network of community partners, service providers, and licensed professionals to deliver programs and services. We do not own or operate third-party service providers. Real estate services are provided in collaboration with licensed professionals and independent affiliated companies. Construction and development services are coordinated through independent contractors and affiliated companies. All services are provided in furtherance of our charitable mission and in compliance with applicable nonprofit regulations. Safe Housing Outreach Ministry CDO does not promote or represent any for-profit entity. Donations are tax-deductible to the full extent of the law. This website is for informational purposes only.
+  </div>
+</footer>
+</div><!-- /main-site -->
+
+<!-- ████████  INTAKE FORM PAGE  ████████ -->
+<div id="page-intake" style="display:none;">
+<style>
+  .intake-wrap { max-width: 780px; margin: 0 auto; padding: 40px 24px 80px; }
+  .intake-header { background: var(--green); padding: 36px 32px; text-align: center; }
+  .intake-header h1 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--white); font-weight: 900; margin-bottom: 6px; }
+  .intake-header .sub-title { font-size: 1rem; color: var(--gold-light); font-weight: 700; margin-bottom: 10px; display: block; }
+  .intake-header p { color: rgba(255,255,255,.78); font-size: .88rem; line-height: 1.7; max-width: 620px; margin: 0 auto; }
+  .intake-notice { background: var(--gold-pale); border-left: 5px solid var(--gold); padding: 16px 20px; margin-bottom: 28px; font-size: .88rem; color: var(--text-mid); line-height: 1.75; }
+  .intake-notice strong { color: var(--green); display: block; margin-bottom: 4px; }
+  .progress-bar-wrap { background: #e0e0e0; border-radius: 4px; height: 8px; margin-bottom: 8px; overflow: hidden; }
+  .progress-bar-fill { background: var(--gold); height: 100%; width: 0%; transition: width .4s ease; border-radius: 4px; }
+  .progress-label { font-size: .72rem; color: var(--text-light); letter-spacing: .08em; text-transform: uppercase; font-weight: 700; margin-bottom: 5px; display: flex; justify-content: space-between; }
+  .i-section { background: var(--white); border: 1px solid var(--border); padding: 26px; margin-bottom: 22px; border-top: 3px solid var(--gold); }
+  .i-section-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--green); font-weight: 700; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .i-row { display: grid; gap: 14px; margin-bottom: 14px; }
+  .i-row.c2 { grid-template-columns: 1fr 1fr; }
+  .i-row.c1 { grid-template-columns: 1fr; }
+  .i-group { display: flex; flex-direction: column; }
+  .i-group label { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text); margin-bottom: 4px; }
+  .i-group label .req { color: #c0392b; }
+  .i-group input, .i-group select, .i-group textarea { width: 100%; padding: 10px 12px; border: 1.5px solid #ccc; font-family: 'Nunito Sans', sans-serif; font-size: .9rem; color: var(--text); background: var(--cream); outline: none; transition: border-color .2s; }
+  .i-group input:focus, .i-group select:focus, .i-group textarea:focus { border-color: var(--green); }
+  .i-group textarea { min-height: 100px; resize: vertical; }
+  .i-group select { appearance: none; }
+  .check-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+  .check-group label { display: flex; align-items: center; gap: 7px; font-size: .87rem; font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--text-mid); cursor: pointer; }
+  .check-group input { width: auto; margin: 0; cursor: pointer; accent-color: var(--green); }
+  .i-confidential { background: var(--green); color: rgba(255,255,255,.82); padding: 16px 20px; font-size: .84rem; line-height: 1.7; margin-bottom: 20px; }
+  .i-confidential strong { color: var(--gold-light); }
+  .btn-intake-submit { background: var(--gold); color: var(--white); padding: 16px; font-weight: 700; font-size: 1rem; letter-spacing: .1em; text-transform: uppercase; border: none; cursor: pointer; font-family: inherit; width: 100%; transition: background .2s; margin-top: 8px; }
+  .btn-intake-submit:hover { background: var(--green); }
+  .intake-footer-note { background: var(--green); color: rgba(255,255,255,.82); padding: 24px 32px; text-align: center; font-size: .88rem; line-height: 1.9; margin-top: 8px; }
+  .intake-footer-note a { color: var(--gold-light); font-weight: 700; }
+  .privacy-link-small { text-align: center; font-size: .75rem; color: var(--text-light); margin-top: 10px; }
+  .privacy-link-small a { color: var(--green); }
+  @media (max-width: 600px) { .i-row.c2 { grid-template-columns: 1fr; } .intake-header { padding: 24px 16px; } .i-section { padding: 18px 14px; } }
+</style>
+
+<div style="background:var(--green);padding:10px 24px;">
+  <button onclick="showPage('home')" style="background:none;border:1px solid rgba(255,255,255,.4);color:var(--gold-light);padding:7px 18px;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;font-family:inherit;">&#8592; Back to Main Site</button>
+</div>
+
+<div class="intake-header">
+  <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4QAqRXhpZgAASUkqAAgAAAABADEBAgAHAAAAGgAAAAAAAABQaWNhc2EAAP/bAIQACAYGEAYREAcQEA0QEBAQGw8QFRAQGRsbGxQoGh8lHRocHCAkKycgKywrHBwoNik1MDs0NDQfJ0U9NDQ8LjM0NAEJCQkNCw0ZDg4YJiIdHSYmJiYnJiYmJicmJicmJiYmJiYmJiYmJiYyJiYmJiYmJiYmJiYmMiYmJiYmJjImJiYm/8AAEQgAzQDNAwERAAIRAQMRAf/EABsAAQACAwEBAAAAAAAAAAAAAAADBQECBAYH/8QANxAAAQMCBQIEAwYFBQAAAAAAAQACAwQRBRIhMUETUQYiYXEUFTJCUoGRobEHFiNi0TNDY3Lh/8QAGgEBAAMBAQEAAAAAAAAAAAAAAAECAwQFBv/EACoRAQACAgICAgEEAQUBAAAAAAABAgMREjEhQQQTIlFhcYGRBSMyQrEU/9oADAMBAAIRAxEAPwD5mtnmiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICfwkT2gQE2kUoFH7noTcb8p66E36hE7gQ7EBAQEBAQEBAQEBAQEBAQEBP2Slp6d9W5tOxpc9xs0Dcqt7fX5krWZdEtPFTeR0hlcN+jbKPTOd/wABb1VItNvOl9RWO/JS0RxR7aSCOV0jjYAuBFu+wtbk7Je8Yo5WkpSb9Q7I8LhdMzDBK+V7nZHSR2DGnki+rwOTpsbLP7bceWtLxjry47Uy6IYT+jIGazQCSTYAfsk2iNzKYjfiHo34f8rfHhQIFQ60lXID/pMtcsB4IGrj3sFxxknJ+fr06JpFfx9+1FWTiqkkqAMoe9zwOwJuuvHGo8sLSgVlRAQEBAQEBAQEBAQEBAQEBAQWmCTtjM8Jc1jpqd0Mb3GwDiW6E8ZgC2/qufPEzqfUNcc6cUtFJA4ROjkDibAZTr2t3/BaRkpr9leE78vY19G7wtTfKYxerqWB1XJsI4+Isx0F+de/cLzcd/8A6MnOf+MdOy1fppxjue3ljUMoGuhjcHSPaWPkGgDeWM515d20Gh19CI5T56cu4rH7uC618a0yel8PQDCoz4ie3M5rujRMtfPP963Ib+64vkX+y31R/bqxV4Rzn+lZWTmmD6fNmllN6l9763v0weddXHk2GwW2OvtnedeFauiGP8idn7iAgICAgICAgICAgICAgICAnQbp4k6ev8KEYLG/xHMXdOO8dLFmIEk1t7dm8/8Ai835e8sxip/btwf7cc5VVBST+L6ksdISXkyyveTlY37TrcAcD2W17V+Ni1EMqxbNfytBN8wlGA4YwRx7PmIGd4G8j37taOwt+qw/4V+zLPn1DXcTMUos/g6bxM6XCoHCOKmaJDMGNvI/NaSV7js0AGw5JusOeTBEWt3Ztxrl/GvpS4zioxGZlDRNc5sbfh6awNwznKO7ty46+y6sOPhWb5PbDJeJtxq6cToofDDRhzXxfEWvUTWD3N/44m8erjb3VcV7555T0m9a4vHt57Eqg1xFVbKwNbCzMbucGjcn7R7n1AXZjrw/FzZJ5+YcC2Z9iAgICAgICAgICAgICAgICDeGTpObIQ12VwdZ2xsdj6FRau/CazMTuXfUVkNXK6tkbIczs3TY1jG+1xsPYLGKXivGv+Wm43tDiOJvxMtc7K1rG5ImMFmsb91o/c7nlWxYYx+UXycpT4VigoGVNMQ8CoiERcy1wMwJ3toQLFUy4pvaLfotjvwiY/V00mNR0sM9AxkjOtlbnYQXFmuZpJtvptsNLarPJgmbxe0+IXpliKzELyvn/lujdhTB06iUMknsblgJ8sZPJIBJ/LZctKffmi9uo6b2tOLHqO5eYosZkopI6kZT05GyZQ0NDrG9jlAuvQvgraunJXJMTuWKyohnkkq7TuL3mTK8tGpN7FwuTvxZRjpNYipe8WncuOaYznMbaCwAFgB2A4C2iulJlGrKigEBAQEBAQEBAQEBAQEBAQE7NiAn7p7E34RD0HhqJlGJcfmAdHS26bTs+oP0N9hbMfZcfyrTOsce3TgiI/KfTixWZ5s2Ul00jjUzk75iPK0+w1txmtwtMNKx10pkmZ7Vi6OmIiRO0CaBAQEBAQEBAQEBAQEBAQEBAQEBI8nmBP2Hs8B8NVVfBEY30eV83VY2S5LXWtnsBbZpsDfZeX8n5VKXmHfh+Pe1e11N/DeGtc10dTPd/UzPlaDmkBGvGhufyXJT/VJr4mG9vgxaPEvm9TTupHvp3ghzHFjge4K9zHki1YmPby7UmJmsolfSogICAgICAgICAgICAgICAg2YwyHIASewBJUTbSYjbMkLobBzXNvtcEJE7JjTDGGQ5QCT2AUzI1UbE0tK+ABzmOaD3FvwUc4nxCZrMds0bo2SRula58QcOo0OIJbfWxUZYma6r2nHqJ8vrkgZVtirIDGynaG5GuIa4xgaMDXC/mtcd767L5qd1tNb9vZjzETXpb0cz83wgh0zmbyuHkGawYGm1jp7am2657Vrve29bTEeIfGvEmJSYtVTVcjQx2csygbBugHvpqvp/i44x4oiHhfIvN7zMqpdLEQEBAQEBAQEBAQEBAQEBAQbtmdGDGCQHb20v7+iraI7Tt6mpwkVxgwKkjNmuL5JpTYPfl1cP7ABpb3XBXNNN3vP8Q65x8tVp/lWzwieQYJRB0tzlc8DWZ/f0YOB+JW1bTFfsyM5r/1q6vhW4bmpoHRulZpUVTj/AE4zyyM9/wC4eY/ZCpF5yebf1C3CKx4VNbUsIFJFm6bXZ3PePNI+1sx7DsONb6ldOOkx5lja8dQ4Vqzj9Xv/AAj4uhgayGrmfG6naWwPDMwMZH0mwvoRp3B9F43zfhXtbeON7el8X5NdfnOtGNfxDE0c1JTdYPlcHdc2Y62lxlF7aAAa7eqj4/8ApvG0Wv69GX5u4mK/5eBc4vJcbknUk9+69qI086Znt2NwmV0DsWyjoNkERdmH1dgNyspy1i8U9rxjnjzcS1Z+xD0J/BAnZ0ICAgICAgICAgICAgmp6SSrIZGxzyTl0HPa+yrbJWnm0r0rM+Ierq44/DMBwZkg+MnAbVuY0uc1vELbWGt9dV5tZtmv9kx+MdOuYjHXjE+Z7Zq5GeD2HC4R1KydgFQ5w1jadom5TuedVNYn5E87eKx0WmuGOMdqTDsOqPEr/h2WyxjM4us2ONvfTQfuV05L0wRthSlssoKyjhjz9GZ0vTtmcY8rXXNrt1J3PIF1emSbTHKNbRelY6l00uA56Z+MzSdGO+SEZbulf2aLjTuf8Kl/k6y/XWNprh/HlM6KLAOtTyYxNJ0YWnJF5bmST7rRcfif8Jf5P5xSvmfZGHdeUyjw2hDmTVr2h4jgL2MJOvmDc5twC7TuR2CtkyzyiqKUjjMyjwTBn43J8M0hrWtzyyO+ljBu4qc+eMVfPmUYsU3lE6mEj308UjnxNdcPLSARtmy66nYDc3Cc4ivK0ak4btxifDuxfARhEnRdL5Qxpf5fMJCLmMAHUi4vrYXVMXyfsrvS98HGdbc+M4QcIdHCSS6SFs2Uizm3+y4DnT9VfFn+yu1L4+NtOqr8PDCI2zVcvSkeMzIGNzSZe7rkBg99VnX5POZ4R4/VecEVjdp/privh/5TDFWPlaHT2dFEWnP07Xzu1s3eynF8n7Z1EIyYeFd7Uq6mAgICAgICAgICAmyFlLhRiMOS85kYJHNjY/S/2c1tfW22qwrlmd7jTXhHrys4q8eHx1szJK22WMNsWU45ItoX+23JusJpOadf9f8A1rF4x/y4/Dk4hndiDgZHwxPqGA6l0oHlv3sTmPstfkY/w41UxW/PlKOCV1I52KSkmY3dEHfUZD/uEcAXuO5twCkxE14VNzvlK7rHvpMPpMNp2uIqw6epewE5nB1gwn0trfsuWleWe1r+um1p1jitffbmwWhpq18OEvfu90tS6ME5g1pIY121gAdhqTpsCr/IvkrE3iP4VxVpvjKaWYeKKqITXp6VvkhiAsRCBcgD1A1PfQXVYr9OOZr5n2tMxkvqfENcVrBjTxPK2SGjgbkp4GMu4NsbXbcWBI1cfYKcNZxx482nuTJbnPnqE2HU5oqOtxWqPSNVEKana5pBdqCS1u+UWFvZUy2m2StaR12nHWIpNrT2xjLflUX8vU9wwhstbM/QPcRcNv8AdF9he57q2GJyW+y/9QjJPCOFUmBRxYRC7H3/AERuy0jTbNLPt1COzdbcDU7qvyJtkt9ce+1sURSvOf6Q4DIw9XxLUtM7onhlPCATmmNyCd9Bvc7m53U56zGsVPH6oxWjzkslwOqDp6nHakdepiiNQyMagSXAaCB2uNB9IHdRmpPGMVOjHaJmbz2iw2j6rpfEuIEvax2YsO8kp+lluP8ArwN9N176rGHEUjz9mRU4tiD6yV9fPZ08mgZxG3gEeg2bxuey68OKK141YZL7nc9qddLAQEBAQEBAQEBAU7OmwkLRkBcB2ubfkq6juE7lqp68Qje2QcuoJBGxBSYie0x4YJvrqSe6REeke9s5yAWXNjuLmx/BRqE7nTANtdQQp1uNEb0zmN89zfe9zf8ANRqP0Nto5nRHqtc9rvvBxB/NJrE+NESSzOnOd7nPO13OJP6qK1iOiZmY3LUuLrAkkDYEnT2U6iOjbCnUR2jc9MteW6AuF9DYkX9FExCdyucH8PyVzyHPbTtY0ySPcTdkfLiBt6XtdcufPFI1WNy3xYpmUmM+IG1GSkpmGKCAFsNzd3q89nO5O/qowfHnza8+ZTmy7nVeoUK7IjTnnz52IgQEBAQEBAQEBAQEC3CDNuNUGLe6JgtfVEQIkUoZtZQlhOkCAifSzo2ta1hbLFE51+o95OZovYBoAJ1Gtxqb20ssL8t9NKaS4hirTH8ppg9sAdnkc4eeWT7z7bAcN491TFhnlzv2tfL441U9uV1MS3KIEBAQEBAQEBAQEBBlrspDrA2INjt7ILKqxczyRVQDrxP6gzvzG+fNlvYaDYDhRpfk1GKlk0VW0SARZWgZ/MWg3IzW5ueE0jk2w7GXUMr6wh0jntynM7X6mnU86Nsmkxb2io8Q+EjmpbP/AKthdr7WsHCx01vm1TSIt6Z+Yt+H+XdP7fVz5tc97X9sulvxvwmjbSrrvio2QWeMrQ22e7NG2u1ttCdzrv7qdG02JYt8waI8mW0me9xr5Gt101Pl39VEQWttphuIig6rXM6jZWBjm5rCwcDroeQEmCttMz4p15airIdedrmnzbEkemuyaOXluzF8tOcNyXvezs213tcdLbHKNPYpo5eEUeI9N9PMA7+g0N+oa2c43Fxp9Xrsmjl58pGYu6KaWsZ1GCQOFmyG4u2wJPNjqmiLedtaPFPhI56YtLuvoTm28rhf3836Jo2iFe4Qmg81jJ1N9LW+n87H3CaNuRSqICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIP/Z" alt="SHOM CDO" style="height:60px;width:60px;object-fit:cover;border-radius:6px;border:2px solid rgba(201,162,39,.5);margin:0 auto 12px;display:block;" />
+  <h1>Safe Housing Outreach Ministry CDO</h1>
+  <span class="sub-title">Client Intake Request Form</span>
+  <p>Please complete this form to request services. A member of our team will contact you within 24–48 hours. All information is confidential. Sensitive personal documents will be collected during your official intake appointment — not online.</p>
+</div>
+
+<div class="intake-wrap">
+
+  <div class="intake-notice">
+    <strong>Important — Please Read Before Submitting</strong>
+    Do NOT submit Social Security Numbers, Driver's License numbers, or upload sensitive documents here. Our team will collect all required documentation securely during your scheduled intake appointment. If you need immediate assistance please call <strong>(313) 405-9606</strong>.
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-label"><span>Form Completion</span><span id="prog-pct">0%</span></div>
+  <div class="progress-bar-wrap"><div class="progress-bar-fill" id="prog-fill"></div></div>
+  <p style="font-size:.75rem;color:var(--text-light);margin-bottom:20px;">Fields marked <span style="color:#c0392b;">*</span> are required</p>
+
+  <form id="intake-form" action="https://formspree.io/f/xojpqddw" method="POST">
+    <input type="hidden" name="_subject" value="New SHOM CDO Client Intake Request" />
+    <input type="hidden" name="_replyto" value="intake@shoministry.org" />
+
+    <!-- SECTION 1: CONTACT INFO -->
+    <div class="i-section">
+      <div class="i-section-title">Your Contact Information</div>
+      <div class="i-row c2">
+        <div class="i-group">
+          <label>First Name <span class="req">*</span></label>
+          <input type="text" name="first_name" placeholder="First name" required />
+        </div>
+        <div class="i-group">
+          <label>Last Name <span class="req">*</span></label>
+          <input type="text" name="last_name" placeholder="Last name" required />
+        </div>
+      </div>
+      <div class="i-row c2">
+        <div class="i-group">
+          <label>Email Address <span class="req">*</span></label>
+          <input type="email" name="email" placeholder="your@email.com" required />
+        </div>
+        <div class="i-group">
+          <label>Cell Phone Number <span class="req">*</span></label>
+          <input type="tel" name="phone" placeholder="(000) 000-0000" required />
+        </div>
+      </div>
+      <div class="i-row c2">
+        <div class="i-group">
+          <label>City <span class="req">*</span></label>
+          <input type="text" name="city" placeholder="City" required />
+        </div>
+        <div class="i-group">
+          <label>State <span class="req">*</span></label>
+          <select name="state" required>
+            <option value="">Select state</option>
+            <option>Michigan</option><option>Texas</option>
+            <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option><option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option><option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option><option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option><option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option><option>Massachusetts</option><option>Minnesota</option><option>Mississippi</option><option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option><option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option><option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option><option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option><option>South Dakota</option><option>Tennessee</option><option>Utah</option><option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+          </select>
+        </div>
+      </div>
+      <div class="i-row c2">
+        <div class="i-group">
+          <label>Date of Birth</label>
+          <input type="date" name="dob" />
+        </div>
+        <div class="i-group">
+          <label>Gender</label>
+          <select name="gender">
+            <option value="">Select</option>
+            <option>Male</option><option>Female</option><option>Non-binary</option><option>Prefer not to say</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: HOUSEHOLD -->
+    <div class="i-section">
+      <div class="i-section-title">Household Information</div>
+      <div class="i-row c2">
+        <div class="i-group">
+          <label>Number of Adults in Household</label>
+          <select name="num_adults">
+            <option value="">Select</option>
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+          </select>
+        </div>
+        <div class="i-group">
+          <label>Number of Children in Household</label>
+          <select name="num_children">
+            <option value="">Select</option>
+            <option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+          </select>
+        </div>
+      </div>
+      <div class="i-row c1">
+        <div class="i-group">
+          <label>Ages of Children (if any)</label>
+          <input type="text" name="children_ages" placeholder="e.g. 3, 7, 12" />
+        </div>
+      </div>
+      <div class="i-row c2">
+        <div class="i-group">
+          <label>Do you have a disability?</label>
+          <select name="disability">
+            <option value="">Select</option>
+            <option>Yes</option><option>No</option><option>Prefer not to say</option>
+          </select>
+        </div>
+        <div class="i-group">
+          <label>Served in Armed Forces?</label>
+          <select name="veteran">
+            <option value="">Select</option>
+            <option>Yes</option><option>No</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: SERVICE NEEDED -->
+    <div class="i-section">
+      <div class="i-section-title">Services You Are Requesting <span class="req">*</span></div>
+      <p style="font-size:.85rem;color:var(--text-light);margin-bottom:14px;">Please select all that apply</p>
+      <div class="check-group">
+        <label><input type="checkbox" name="service[]" value="Emergency Housing" /> Emergency Housing</label>
+        <label><input type="checkbox" name="service[]" value="Transitional Housing" /> Transitional Housing</label>
+        <label><input type="checkbox" name="service[]" value="Low-Income/Affordable Housing" /> Low-Income / Affordable Housing</label>
+        <label><input type="checkbox" name="service[]" value="Homeownership Program" /> Homeownership Program</label>
+        <label><input type="checkbox" name="service[]" value="Homeless Prevention/Rental Assistance" /> Homeless Prevention / Rental Assistance</label>
+        <label><input type="checkbox" name="service[]" value="Utility Assistance" /> Utility Assistance</label>
+        <label><input type="checkbox" name="service[]" value="Financial Empowerment/Tax Prep" /> Financial Empowerment / Tax Prep</label>
+        <label><input type="checkbox" name="service[]" value="Workforce Development/Job Readiness" /> Workforce Development / Job Readiness</label>
+        <label><input type="checkbox" name="service[]" value="Domestic Violence Support" /> Domestic Violence / Crisis Support</label>
+        <label><input type="checkbox" name="service[]" value="Daycare/Youth Programs" /> Daycare / Youth Programs</label>
+        <label><input type="checkbox" name="service[]" value="Homeless Prevention/Case Management" /> Homeless Prevention / Case Management</label>
+        <label><input type="checkbox" name="service[]" value="Case Management Services" /> Case Management Services</label>
+        <label><input type="checkbox" name="service[]" value="Community Outreach" /> Community Outreach</label>
+        <label><input type="checkbox" name="service[]" value="Security Deposit Assistance" /> Security Deposit Assistance</label>
+        <label><input type="checkbox" name="service[]" value="Credit Building" /> Credit Building</label>
+        <label><input type="checkbox" name="service[]" value="DHS Assistance" /> DHS Assistance (Medical/Food/SER)</label>
+        <label><input type="checkbox" name="service[]" value="Career Resources" /> Career Resources</label>
+        <label><input type="checkbox" name="service[]" value="Other" /> Other</label>
+      </div>
+    </div>
+
+    <!-- SECTION 4: CURRENT SITUATION -->
+    <div class="i-section">
+      <div class="i-section-title">Your Current Situation <span class="req">*</span></div>
+      <div class="i-row c1">
+        <div class="i-group">
+          <label>Where did you sleep last night? <span class="req">*</span></label>
+          <select name="sleep_location" required>
+            <option value="">Select one</option>
+            <option>In my own home / apartment</option>
+            <option>Staying with a friend or family member</option>
+            <option>In a vehicle</option>
+            <option>In a motel or hotel</option>
+            <option>In an emergency shelter</option>
+            <option>Outside / on the streets</option>
+            <option>In a place not meant for human habitation</option>
+            <option>In an unsafe or abusive home</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="i-row c1">
+        <div class="i-group">
+          <label>Are you currently fleeing from?</label>
+          <div class="check-group">
+            <label><input type="checkbox" name="fleeing[]" value="Domestic Violence" /> Domestic Violence</label>
+            <label><input type="checkbox" name="fleeing[]" value="Sexual Assault" /> Sexual Assault</label>
+            <label><input type="checkbox" name="fleeing[]" value="Stalking" /> Stalking</label>
+            <label><input type="checkbox" name="fleeing[]" value="Sex Trafficking" /> Sex Trafficking</label>
+            <label><input type="checkbox" name="fleeing[]" value="N/A" /> N/A</label>
+          </div>
+        </div>
+      </div>
+      <div class="i-row c1">
+        <div class="i-group">
+          <label>Are you actively seeking employment?</label>
+          <select name="seeking_employment">
+            <option value="">Select</option>
+            <option>Yes</option><option>No</option>
+          </select>
+        </div>
+      </div>
+      <div class="i-row c1">
+        <div class="i-group">
+          <label>How did you hear about SHOM CDO?</label>
+          <input type="text" name="referral" placeholder="e.g. Friend, Social Media, Church, Hospital, Google..." />
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 5: DESCRIBE YOUR NEED -->
+    <div class="i-section">
+      <div class="i-section-title">Please Describe Your Need <span class="req">*</span></div>
+      <div class="i-row c1">
+        <div class="i-group">
+          <label>Tell us about your situation and how we can help you <span class="req">*</span></label>
+          <p style="font-size:.8rem;color:var(--text-light);margin-bottom:8px;">Please share as much detail as you are comfortable with. This helps us connect you with the right services and team member as quickly as possible.</p>
+          <textarea name="description" placeholder="Example: I am a single mother of 2 children currently staying in a motel. I received an eviction notice 10 days ago and need emergency housing assistance. I am employed part time but cannot afford first and last month's rent..." required></textarea>
+        </div>
+      </div>
+      <div class="i-row c1">
+        <div class="i-group">
+          <label>Is there anything else you would like us to know?</label>
+          <p style="font-size:.8rem;color:var(--text-light);margin-bottom:8px;">All information is strictly confidential and will only be used to assist you.</p>
+          <textarea name="additional_info" placeholder="Any additional information that may help us serve you better..."></textarea>
+        </div>
+      </div>
+      <div class="i-row c1">
+        <div class="i-group">
+          <label>Best time to contact you <span class="req">*</span></label>
+          <select name="best_contact_time" required>
+            <option value="">Select one</option>
+            <option>Morning (8am – 12pm)</option>
+            <option>Afternoon (12pm – 5pm)</option>
+            <option>Evening (5pm – 8pm)</option>
+            <option>Anytime</option>
+          </select>
+        </div>
+      </div>
+      <div class="i-row c1">
+        <div class="i-group">
+          <label>Preferred contact method <span class="req">*</span></label>
+          <select name="contact_method" required>
+            <option value="">Select one</option>
+            <option>Phone call</option>
+            <option>Text message</option>
+            <option>Email</option>
+            <option>Any</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONFIDENTIALITY & CONSENT -->
+    <div class="i-confidential">
+      <strong>Confidentiality &amp; Consent Statement</strong>
+      By submitting this form you confirm that the information provided is true and accurate to the best of your knowledge. Safe Housing Outreach Ministry CDO is committed to protecting your privacy. All information shared is strictly confidential and will only be used to provide services and support. We do not sell or share your information with third parties. Please review our full <a href="#" onclick="showPage('privacy');return false;" style="color:var(--gold-light);font-weight:700;">Privacy Policy</a> for complete details.
+    </div>
+
+    <div class="i-row c1">
+      <div class="i-group">
+        <label style="display:flex;align-items:flex-start;gap:10px;font-size:.88rem;font-weight:400;letter-spacing:0;text-transform:none;color:var(--text-mid);cursor:pointer;">
+          <input type="checkbox" name="consent" required style="width:18px;height:18px;margin-top:2px;accent-color:var(--green);flex-shrink:0;" />
+          I have read and agree to the confidentiality statement above. I understand that sensitive documents (ID, SSN, etc.) will be collected in person during my scheduled appointment, not online. <span style="color:#c0392b;">*</span>
+        </label>
+      </div>
+    </div>
+
+    <button type="submit" class="btn-intake-submit">Submit My Request</button>
+
+    <div class="privacy-link-small">
+      By submitting you agree to our <a href="#" onclick="showPage('privacy');return false;">Privacy Policy</a> &amp; Terms of Service. &nbsp;|&nbsp; Questions? Call <a href="tel:3134059606" style="color:var(--green);">(313) 405-9606</a>
+    </div>
+
+  </form>
+
+  <div class="intake-footer-note">
+    Questions about the intake process? Call SHOM CDO's Intake Line at
+    <a href="tel:3134059606">(313) 405-9606</a> or email
+    <a href="/cdn-cgi/l/email-protection#0c6562786d67694c7f6463616562657f787e7522637e6b">intake&#64;shoministry.org</a><br />
+    Someone will respond within 24–48 hours.<br /><br />
+    <em>We understand there is an overwhelming need for support in our communities. Our Street Outreach Team is returning calls as quickly as possible. Stay safe — with love from Safe Housing Outreach Ministry CDO!</em>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ████████  PRIVACY POLICY PAGE  ████████ -->
+<div id="page-privacy" style="display:none;">
+<div style="background:var(--green);padding:10px 24px;">
+  <button onclick="showPage('home')" style="background:none;border:1px solid rgba(255,255,255,.4);color:var(--gold-light);padding:7px 18px;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;font-family:inherit;">&#8592; Back to Main Site</button>
+</div>
+<section style="background:var(--green);padding:60px 48px;text-align:center;">
+  <div class="sec-label" style="color:var(--gold-light);">Legal</div>
+  <h1 style="font-family:'Playfair Display',serif;font-size:2.4rem;color:var(--white);font-weight:900;margin-bottom:12px;">Privacy Policy</h1>
+  <p style="color:rgba(255,255,255,.75);font-size:.95rem;">Effective Date: January 1, 2024 &nbsp;|&nbsp; Safe Housing Outreach Ministry CDO</p>
+</section>
+<section style="background:var(--cream);padding:60px 48px;">
+  <div style="max-width:820px;margin:0 auto;font-size:.97rem;line-height:1.9;color:var(--text-mid);">
+
+    <div style="background:var(--gold-pale);border-left:4px solid var(--gold);padding:16px 20px;margin-bottom:32px;font-size:.9rem;">
+      <strong style="color:var(--green);">Our Commitment to You</strong><br />
+      Safe Housing Outreach Ministry CDO is committed to protecting the privacy and confidentiality of all individuals who seek our services. We collect only the information necessary to provide housing, social, and community services — and we never sell your information to anyone.
+    </div>
+
+    <h2 style="font-family:'Playfair Display',serif;color:var(--green);font-size:1.3rem;margin:28px 0 10px;">1. Who We Are</h2>
+    <p>Safe Housing Outreach Ministry Community Development Organization (SHOM CDO) is a faith-based 501(c)(3) nonprofit organization providing housing assistance, workforce development, youth programs, and wraparound community services to individuals and families in Detroit Metro, Michigan and Dallas/Kaufman County, Texas.</p>
+    <p style="margin-top:8px;"><strong>Contact:</strong> <a href="/cdn-cgi/l/email-protection#cebdbbbebea1bcba8ebda6a1a3a7a0a7bdbabcb7e0a1bca9" style="color:var(--green);">support&#64;shoministry.org</a> &nbsp;|&nbsp; <a href="tel:3134059606" style="color:var(--green);">(313) 405-9606</a> &nbsp;|&nbsp; <a href="https://www.shoministry.org" style="color:var(--green);">www.shoministry.org</a></p>
+
+    <h2 style="font-family:'Playfair Display',serif;color:var(--green);font-size:1.3rem;margin:28px 0 10px;">2. Information We Collect</h2>
+    <p><strong>Online (this website):</strong> We collect only basic contact information voluntarily submitted through our intake request form — including name, phone number, email address, city, state, and a description of your service need. We do NOT collect Social Security Numbers, Driver's License numbers, financial account information, or upload sensitive documents online.</p>
+    <p style="margin-top:8px;"><strong>In person (official intake appointment):</strong> During your scheduled intake appointment, SHOM CDO staff may collect additional information required to provide services including government-issued ID, proof of income, Social Security information, and other documentation. This information is collected and stored securely in accordance with applicable federal and state privacy laws.</p>
+
+    <h2 style="font-family:'Playfair Display',serif;color:var(--green);font-size:1.3rem;margin:28px 0 10px;">3. How We Use Your Information</h2>
+    <p>Information collected is used solely to:</p>
+    <ul style="padding-left:1.4rem;margin-top:8px;">
+      <li>Contact you regarding your request for services</li>
+      <li>Determine eligibility for SHOM CDO programs</li>
+      <li>Connect you with appropriate housing and community resources</li>
+      <li>Comply with reporting requirements for nonprofit grant funding</li>
+      <li>Improve our programs and services</li>
+    </ul>
+
+    <h2 style="font-family:'Playfair Display',serif;color:var(--green);font-size:1.3rem;margin:28px 0 10px;">4. We Do Not Sell Your Information</h2>
+    <p>SHOM CDO does not sell, trade, rent, or otherwise share your personal information with third parties for marketing or commercial purposes — ever. Period.</p>
+
+    <h2 style="font-family:'Playfair Display',serif;color:var(--green);font-size:1.3rem;margin:28px 0 10px;">5. Information Sharing</h2>
+    <p>We may share limited information only in the following circumstances:</p>
+    <ul style="padding-left:1.4rem;margin-top:8px;">
+      <li>With your written consent</li>
+      <li>With partner agencies to connect you with additional services (with your permission)</li>
+      <li>As required by law, court order, or to protect the safety of our clients or staff</li>
+      <li>With funders or government agencies as required for grant compliance (in aggregate/anonymized form only)</li>
+    </ul>
+
+    <h2 style="font-family:'Playfair Display',serif;color:var(--green);font-size:1.3rem;margin:28px 0 10px;">6. Data Security</h2>
+    <p>We take reasonable measures to protect your information from unauthorized access, disclosure, or misuse including:</p>
+    <ul style="padding-left:1.4rem;margin-top:8px;">
+      <li>Secure encrypted email for all client communications</li>
+      <li>Password-protected systems for client records</li>
+      <li>Limited staff access to sensitive information on a need-to-know basis</li>
+      <li>SSL encryption on our website (https://)</li>
+      <li>Secure physical storage of paper records</li>
+    </ul>
+
+    <h2 style="font-family:'Playfair Display',serif;color:var(--green);font-size:1.3rem;margin:28px 0 10px;">7. Your Rights</h2>
+    <p>You have the right to:</p>
+    <ul style="padding-left:1.4rem;margin-top:8px;">
+      <li>Request access to the information we hold about you</li>
+      <li>Request correction of inaccurate information</li>
+      <li>Request deletion of your information (subject to legal retention requirements)</li>
+      <li>Withdraw consent for services at any time</li>
+      <li>File a complaint if you believe your privacy rights have been violated</li>
+    </ul>
+    <p style="margin-top:8px;">To exercise any of these rights please contact us at <a href="/cdn-cgi/l/email-protection#82ebecf6e3e9e7c2f1eaedefebecebf1f6f0fbacedf0e5" style="color:var(--green);">intake&#64;shoministry.org</a> or call <a href="tel:3134059606" style="color:var(--green);">(313) 405-9606</a>.</p>
+
+    <h2 style="font-family:'Playfair Display',serif;color:var(--green);font-size:1.3rem;margin:28px 0 10px;">8. Children's Privacy</h2>
+    <p>SHOM CDO serves families including children. Information about minors is collected only as necessary to provide services and is handled with the highest level of confidentiality in compliance with applicable child privacy laws.</p>
+
+    <h2 style="font-family:'Playfair Display',serif;color:var(--green);font-size:1.3rem;margin:28px 0 10px;">9. Donations</h2>
+    <p>Donation information is processed securely through PayPal. SHOM CDO does not store credit card or financial account information on our servers. Donor information is kept confidential and used only for processing your gift and sending tax receipts.</p>
+
+    <h2 style="font-family:'Playfair Display',serif;color:var(--green);font-size:1.3rem;margin:28px 0 10px;">10. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated effective date. Continued use of our website or services after changes constitutes acceptance of the updated policy.</p>
+
+    <h2 style="font-family:'Playfair Display',serif;color:var(--green);font-size:1.3rem;margin:28px 0 10px;">11. Contact Us</h2>
+    <p>If you have questions about this Privacy Policy or how we handle your information please contact us:</p>
+    <div style="background:var(--white);border:1px solid var(--border);padding:20px;margin-top:12px;">
+      <strong style="font-family:'Playfair Display',serif;color:var(--green);font-size:1rem;display:block;margin-bottom:8px;">Safe Housing Outreach Ministry CDO</strong>
+      <div style="line-height:2.2;">
+        <div>Email: <a href="/cdn-cgi/l/email-protection#f685838686998482b6859e999b9f989f8582848fd8998491" style="color:var(--green);font-weight:600;">support&#64;shoministry.org</a></div>
+        <div>Intake: <a href="/cdn-cgi/l/email-protection#d0b9bea4b1bbb590a3b8bfbdb9beb9a3a4a2a9febfa2b7" style="color:var(--green);font-weight:600;">intake&#64;shoministry.org</a></div>
+        <div>Phone: <a href="tel:3134059606" style="color:var(--green);font-weight:600;">(313) 405-9606</a></div>
+        <div>Website: <a href="https://www.shoministry.org" style="color:var(--green);font-weight:600;">www.shoministry.org</a></div>
+        <div>Serving: Detroit Metro, Michigan &amp; Dallas/Kaufman County, Texas</div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── PAGE SWITCHING ──
+function showPage(id) {
+  var main = document.getElementById('main-site');
+  var intake = document.getElementById('page-intake');
+  var privacy = document.getElementById('page-privacy');
+  if (main) main.style.display = 'none';
+  if (intake) intake.style.display = 'none';
+  if (privacy) privacy.style.display = 'none';
+  if (id === 'intake') {
+    if (intake) intake.style.display = 'block';
+  } else if (id === 'privacy') {
+    if (privacy) privacy.style.display = 'block';
+  } else {
+    if (main) main.style.display = 'block';
+  }
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// ── PROGRESS BAR ──
+function updateProgress() {
+  var form = document.getElementById('intake-form');
+  if (!form) return;
+  var required = form.querySelectorAll('[required]');
+  var filled = 0;
+  required.forEach(function(el) {
+    if (el.type === 'checkbox' && el.required) {
+      if (el.checked) filled++;
+    } else if (el.value && el.value.trim() !== '') {
+      filled++;
+    }
+  });
+  var pct = required.length > 0 ? Math.round((filled / required.length) * 100) : 0;
+  var fill = document.getElementById('prog-fill');
+  var pctLabel = document.getElementById('prog-pct');
+  if (fill) fill.style.width = pct + '%';
+  if (pctLabel) pctLabel.textContent = pct + '%';
+}
+document.addEventListener('input', updateProgress);
+document.addEventListener('change', updateProgress);
+
+// ── DONATE FORM ──
+var donateAmt = 250;
+var donateFreq = 'One-time';
+var coverFees = false;
+
+function setFreq(btn, freq) {
+  donateFreq = freq;
+  document.querySelectorAll('.freq-tab').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  var fd = document.getElementById('freq-display');
+  if (fd) fd.textContent = freq;
+  updateTotal();
+}
+
+function setDonateAmt(btn, amt) {
+  document.querySelectorAll('.amt-opt').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  var otherRow = document.getElementById('amt-other-row');
+  if (amt === 0) {
+    if (otherRow) otherRow.style.display = 'flex';
+    donateAmt = 0;
+  } else {
+    if (otherRow) otherRow.style.display = 'none';
+    donateAmt = amt;
+    var ca = document.getElementById('custom-donate-amt');
+    if (ca) ca.value = '';
+  }
+  updateTotal();
+}
+
+function updateCustomDonate(input) {
+  donateAmt = parseFloat(input.value) || 0;
+  updateTotal();
+}
+
+function updateFeeCover(cb) {
+  coverFees = cb.checked;
+  updateTotal();
+}
+
+function updateTotal() {
+  var fee = coverFees ? Math.round(donateAmt * 0.03 * 100) / 100 : 0;
+  var total = donateAmt + fee;
+  var td = document.getElementById('total-display');
+  if (td) td.text
